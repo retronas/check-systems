@@ -8,12 +8,13 @@ from systems.retronas import RetroNAS
 from systems.mister import MiSTer
 from systems.recalbox import Recalbox
 from systems.emuelec import EmuELEC
+from systems.libretro import libretro
 
 
 APP_NAME="Check Systems"
 APP_VER="0.01"
 APP_AUTH="sairuk"
-VALID_SYSTEMS=["mister", "batocera", "recalbox","emuelec"]
+VALID_SYSTEMS=["mister", "batocera", "recalbox","emuelec", "retroarch", "libretro"]
 
 def main(args):
     logger = Logger('main')
@@ -31,6 +32,10 @@ def main(args):
 
     elif args.system == "emuelec":
         project = EmuELEC()
+
+    elif args.system == "retroarch" or args.system == "libretro":
+        project = libretro()
+
 
     if project is not None:
 

@@ -39,6 +39,7 @@ class URLHandler():
             return [r.content, next_page]
         else:
              self.logger.log_error("Failed to get %s, code was %s" % (url, r.status_code))
+             exit(1)
 
         return None
 
@@ -47,9 +48,9 @@ class URLHandler():
         self.logger.log_info("Processing direct download mode")
         return self.get(url)
 
-    def github_tree(self, account, repo):
+    def github_tree(self, account, repo, branch="main"):
         self.logger.log_info("Processing github tree download mode")
-        url = "https://api.github.com/repos/%s/%s/git/trees/main?recursive=1" % ( account, repo )
+        url = "https://api.github.com/repos/%s/%s/git/trees/%s?recursive=1" % ( account, repo, branch )
         json_data = self.get(url)
         return json.loads(json_data[0])
 
