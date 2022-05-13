@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
-import os
-import yaml
 from lib.url import URLHandler
-from lib.config import Config
 from lib.logger import Logger
 
 class Recalbox():

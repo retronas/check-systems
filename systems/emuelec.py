@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from lxml import etree
 from lib.url import URLHandler
-from lib.config import Config
 from lib.logger import Logger
 from systems.emulationstation import EmulationStation
 

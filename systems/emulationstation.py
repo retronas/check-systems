@@ -3,9 +3,6 @@
 import os
 from lxml import etree
 from lib.url import URLHandler
-from lib.config import Config
-from lib.logger import Logger
-
 
 class EmulationStation():
     def __init__(self):

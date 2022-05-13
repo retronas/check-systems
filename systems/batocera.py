@@ -2,7 +2,6 @@
 
 import yaml
 from lib.url import URLHandler
-from lib.config import Config
 from lib.logger import Logger
 
 class Batocera():
