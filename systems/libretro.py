@@ -30,6 +30,7 @@ class libretro():
                     for dirs in self.system_dirs:
                         if dirs in item['path'] and item['path'].count('/') == 1:
                             filename = item['path'].replace("%s/" % dirs,'')
+                            filename = os.path.splitext(filename)[0]
                             self.systems.append(filename)
                             
         return self.systems
