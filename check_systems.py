@@ -19,45 +19,45 @@ VALID_SYSTEMS=["mister", "batocera", "recalbox","emuelec", "retroarch", "libretr
 def main(args):
     logger = Logger('main')
     logger.log_info("%s %s" % (APP_NAME, APP_VER))
-    project=None  
+    projects = [MiSTer(), Batocera(), Recalbox(), EmuELEC(), libretro()]
 
     if args.system == "mister":
-        project = MiSTer()
+        projects = [projects[0]]
 
     elif args.system == "batocera":
-        project = Batocera()
+        projects = [projects[1]]
 
     elif args.system == "recalbox":
-        project = Recalbox()
+        projects = [projects[2]]
 
     elif args.system == "emuelec":
-        project = EmuELEC()
+        projects = [projects[3]]
 
     elif args.system == "retroarch" or args.system == "libretro":
-        project = libretro()
+        projects = [projects[4]]
 
 
-    if project is not None:
+    if projects is not None:
 
         tools = Tools()
-
         retronas = RetroNAS()
+        
+        for project in projects:
 
-
-        if not args.validate_only:
-            retronas.read(project.system_key)
-            project.read()
-            tools.compare(project.systems, retronas.systems, project.name, retronas.name, project.ignored)
-            tools.inverse_compare(project.systems, retronas.systems, project.name, retronas.name, project.ignored)
-        else:
-            retronas.validate(project.system_key)
+            if not args.validate_only:
+                retronas.read(project.system_key)
+                project.read()
+                tools.compare(project.systems, retronas.systems, project.name, retronas.name, project.ignored)
+                tools.inverse_compare(project.systems, retronas.systems, project.name, retronas.name, project.ignored)
+            else:
+                retronas.validate(project.system_key)
 
     else:
         logger.log_error("Could not find module for %s" % args.system)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Compare supported project system data against retronas')
-    parser.add_argument('--system', help='get the system data', type=str, required=True, choices=VALID_SYSTEMS)
+    parser.add_argument('--system', help='get the system data', type=str, required=False, choices=VALID_SYSTEMS)
     parser.add_argument('--validate-only', help='validate the retronas data', default=False, const=True, nargs='?', required=False)
     args = parser.parse_args()
     main(args)
