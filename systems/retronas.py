@@ -21,6 +21,7 @@ class RetroNAS():
 
     def read(self, system_key):
         
+        self.systems = []
         self.uh = URLHandler()
         self.content = self.uh.direct(self.systems_url)
 
