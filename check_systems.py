@@ -40,7 +40,10 @@ def main(args):
     if projects is not None:
 
         tools = Tools()
-        retronas = RetroNAS()
+        if args.retronas_branch is not None:
+            retronas = RetroNAS(args.retronas_branch)
+        else:
+            retronas = RetroNAS()
         
         for project in projects:
 
@@ -59,5 +62,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Compare supported project system data against retronas')
     parser.add_argument('--system', help='get the system data', type=str, required=False, choices=VALID_SYSTEMS)
     parser.add_argument('--validate-only', help='validate the retronas data', default=False, const=True, nargs='?', required=False)
+    parser.add_argument('--retronas-branch', help='check agains a different branch', type=str, required=False)
     args = parser.parse_args()
     main(args)

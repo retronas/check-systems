@@ -6,11 +6,12 @@ from lib.url import URLHandler
 from lib.logger import Logger
 
 class RetroNAS():
-    def __init__(self):
+    def __init__(self, branch='main'):
         self.name = 'retronas'
         self.system_key = 'src'
         self.logger = Logger(self.name)
-        self.systems_url = 'https://raw.githubusercontent.com/danmons/retronas/main/ansible/retronas_systems.yml'
+        self.branch = branch
+        self.systems_url = 'https://raw.githubusercontent.com/danmons/retronas/%s/ansible/retronas_systems.yml' % self.branch
         self.systems = []
         self.ignored = [
             'system_map', 
