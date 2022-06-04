@@ -33,7 +33,7 @@ class RetroNAS():
                 if key not in self.ignored:
                     for system in self.data[key]:
                         if not system_key in system:
-                            self.logger.log_error("System key: %s does not exist in retronas_systems.yml, exiting" % system_key)
+                            self.logger.log_error("System key: %s does not exist in %s, exiting" % (system_key, system["src"]))
                             exit(1)
                         if system[system_key]:
                             self.systems.append(system[system_key])
