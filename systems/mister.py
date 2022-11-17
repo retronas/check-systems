@@ -12,6 +12,7 @@ class MiSTer():
         self.systems_repos = [
             ['MiSTer-devel', 'Distribution_MiSTer'],
             ['MiSTer-DB9','Distribution_MiSTer'],
+            ['theypsilon','Distribution_Unofficial_MiSTer']
         ]
         self.ignored = ['MEMTEST']
         self.system_dirs = ['games']
