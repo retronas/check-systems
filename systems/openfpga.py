@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import yaml
+import re
 from lib.url import URLHandler
 from lib.logger import Logger
 
@@ -12,7 +13,8 @@ class OpenFPGA():
         self.systems_url = 'https://raw.githubusercontent.com/openfpga-cores-inventory/analogue-pocket/main/_data/cores.yml'
         self.systems = []
         self.ignored = []
-        self.logger.log_info("Initiated %s module" % self.name)
+        self.logger.log_info('Initiated %s module' % self.name)
+        self.arcadewhitelist = ['pong']
 
     def read(self):
         
@@ -23,8 +25,8 @@ class OpenFPGA():
             self.data = yaml.safe_load(self.content[0])
 
             for entry in self.data:
-                for core in entry["cores"]:
-                    self.systems.append(core["platform_id"])
-
+                for core in entry['cores']:
+                    if re.match('^Arcade.*', core['platform']['category']) is None or core['platform_id'] in self.arcadewhitelist:
+                        self.systems.append(core['platform_id'])
         return self.systems
     
