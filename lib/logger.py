@@ -18,7 +18,7 @@ class Logger():
             f.write(self.entry)
 
     def log_entry(self, s):
-        self.entry = "[{:>10}] {:>4} {:30}".format(self.logger, self.level, s)
+        self.entry = "[{:>15}] {:>4} {:30}".format(self.logger, self.level, s)
 
     def log_plain(self, s):
         self.level = ""

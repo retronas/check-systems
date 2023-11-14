@@ -5,9 +5,9 @@ import re
 from lib.url import URLHandler
 from lib.logger import Logger
 
-class OpenFPGA():
+class AnaloguePocket():
     def __init__(self):
-        self.name = 'openfpga'
+        self.name = 'analoguepocket'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/openfpga-cores-inventory/analogue-pocket/main/_data/cores.yml'

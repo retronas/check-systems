@@ -9,17 +9,17 @@ from systems.mister import MiSTer
 from systems.recalbox import Recalbox
 from systems.emuelec import EmuELEC
 from systems.libretro import libretro
-from systems.openfpga import OpenFPGA
+from systems.analoguepocket import AnaloguePocket
 
 APP_NAME="Check Systems"
 APP_VER="0.01"
 APP_AUTH="sairuk"
-VALID_SYSTEMS=["mister", "batocera", "recalbox","emuelec", "retroarch", "libretro","openfpga"]
+VALID_SYSTEMS=["mister", "batocera", "recalbox","emuelec", "retroarch", "libretro","analoguepocket"]
 
 def main(args):
     logger = Logger('main')
     logger.log_info("%s %s" % (APP_NAME, APP_VER))
-    projects = [MiSTer(), Batocera(), Recalbox(), EmuELEC(), libretro(), OpenFPGA()]
+    projects = [MiSTer(), Batocera(), Recalbox(), EmuELEC(), libretro(), AnaloguePocket()]
 
     if args.system == "mister":
         projects = [projects[0]]
@@ -36,7 +36,7 @@ def main(args):
     elif args.system == "retroarch" or args.system == "libretro":
         projects = [projects[4]]
 
-    elif args.system == "openfpga":
+    elif args.system == "analoguepocket":
         projects = [projects[5]]
 
     if projects is not None:
