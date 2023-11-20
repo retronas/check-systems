@@ -6,11 +6,12 @@ from lib.url import URLHandler
 from lib.logger import Logger
 
 class RetroNAS():
-    def __init__(self, branch='main'):
+    def __init__(self, branch='main', localfile=None):
         self.name = 'retronas'
         self.system_key = 'src'
         self.logger = Logger(self.name)
         self.branch = branch
+        self.localfile = localfile
         self.systems_url = 'https://raw.githubusercontent.com/danmons/retronas/%s/ansible/retronas_systems.yml' % self.branch
         self.systems = []
         self.ignored = [
@@ -23,8 +24,12 @@ class RetroNAS():
     def read(self, system_key):
         
         self.systems = []
-        self.uh = URLHandler()
-        self.content = self.uh.direct(self.systems_url)
+
+        if self.branch == "local" and self.localfile is not None:
+            self.content = [open(self.localfile,'r').read()]
+        else:
+            self.uh = URLHandler()
+            self.content = self.uh.direct(self.systems_url)
 
         if self.content is not None:
             self.data = yaml.safe_load(self.content[0])
