@@ -13,7 +13,7 @@ class EmuELEC(EmulationStation):
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/EmuELEC/EmuELEC/master/packages/sx05re/emuelec-emulationstation/config/es_systems.cfg'
         self.systems = []
-        self.ignored = ['setup']
+        self.ignored = ['setup','nesh','gbah','gbch','gbh','snesh','gamegearh','genh']
         self.logger.log_info("Initiated %s module" % self.name)
 
     def read(self):

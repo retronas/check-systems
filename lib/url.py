@@ -12,13 +12,18 @@ class URLHandler():
         pass
 
 
-    def get(self, url):
+    def get(self, url, headers=None):
         self.logger.log_info("Getting data from %s" % url)
 
         # pagination in response headers (gitlab)
         pagination = None
         next_page = None
-        r = requests.get(url)
+
+
+        if headers is not None:
+            r = requests.get(url, headers)
+        else:
+            r = requests.get(url)
 
         if r.status_code == 200:
             if "Link" in r.headers:
@@ -43,22 +48,22 @@ class URLHandler():
         return None
 
 
-    def direct(self, url):
+    def direct(self, url, headers=None):
         self.logger.log_info("Processing direct download mode")
-        return self.get(url)
+        return self.get(url, headers)
 
-    def github_tree(self, account, repo, branch="main"):
+    def github_tree(self, account, repo, branch="main", headers=None):
         self.logger.log_info("Processing github tree download mode")
         url = "https://api.github.com/repos/%s/%s/git/trees/%s?recursive=1" % ( account, repo, branch )
-        json_data = self.get(url)
+        json_data = self.get(url, headers)
         return json.loads(json_data[0])
 
-    def gitlab_tree(self, projectid, path):
+    def gitlab_tree(self, projectid, path, headers=None):
         self.logger.log_info("Processing gitlab tree download mode")
         url = 'https://gitlab.com/api/v4/projects/%s/repository/tree?path=%s&per_page=100&pagination=keyset&page_token=keyset' % (projectid, path)
         dataset = []
 
-        data = self.get(url)
+        data = self.get(url, headers)
         dataset.append(data[0])
 
         while data[1] is not None:

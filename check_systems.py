@@ -11,41 +11,35 @@ from systems.emuelec import EmuELEC
 from systems.libretro import libretro
 from systems.analoguepocket import AnaloguePocket
 from systems.emudeck import EmuDeck
+from systems.igdb import IGDB
 
 APP_NAME="Check Systems"
 APP_VER="0.01"
 APP_AUTH="sairuk"
-VALID_SYSTEMS=["mister", "batocera", "recalbox","emuelec", "retroarch", "libretro","analoguepocket","emudeck"]
+VALID_SYSTEMS={
+    "mister" : MiSTer(), 
+    "batocera" : Batocera(), 
+    "recalbox" : Recalbox(),
+    "emuelec" : EmuELEC(),
+    "retroarch" : libretro(),
+    "libretro" : libretro(),
+    "analoguepocket" : AnaloguePocket(),
+    "emudeck" : EmuDeck(),
+    "igdb" : IGDB()
+    }
 
 def main(args):
     logger = Logger('main')
     logger.log_info("%s %s" % (APP_NAME, APP_VER))
-    projects = [MiSTer(), Batocera(), Recalbox(), EmuELEC(), libretro(), AnaloguePocket(),EmuDeck()]
+
 
     # override projects if a system is passed
-    if args.system == "mister":
-        projects = [projects[0]]
-
-    elif args.system == "batocera":
-        projects = [projects[1]]
-
-    elif args.system == "recalbox":
-        projects = [projects[2]]
-
-    elif args.system == "emuedeck":
-        projects = [projects[3]]
-
-    elif args.system == "retroarch" or args.system == "libretro":
-        projects = [projects[4]]
-
-    elif args.system == "analoguepocket":
-        projects = [projects[5]]
-
-    elif args.system == "emudeck":
-        projects = [projects[6]]
+    if args.system is not None:
+        projects = [VALID_SYSTEMS[args.system]]
+    else:
+        projects = VALID_SYSTEMS.values()
 
     if projects is not None:
-
         tools = Tools()
         if args.retronas_branch is not None:
             if args.retronas_local is not None:
@@ -70,7 +64,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Compare supported project system data against retronas')
-    parser.add_argument('--system', help='get the system data', type=str, required=False, choices=VALID_SYSTEMS)
+    parser.add_argument('--system', help='get the system data', type=str, required=False, choices=VALID_SYSTEMS.keys())
     parser.add_argument('--validate-only', help='validate the retronas data', default=False, const=True, nargs='?', required=False)
     parser.add_argument('--retronas-branch', help='check against a different branch', type=str, required=False)
     parser.add_argument('--retronas-local', help='check against a local retronas file', type=str, required=False)
