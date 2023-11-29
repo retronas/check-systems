@@ -14,7 +14,9 @@ class IGDB():
         self.data_file = '_data/https __www.igdb.com_platforms.html'
         self.local_mode = True
         self.systems = []
-        self.ignored = []
+        self.ignored = [
+            '1292-advanced-programmable-video-system'
+        ]
         self.logger.log_info('Initiated %s module' % self.name)
         self.arcadewhitelist = []
         self.headers = {}
