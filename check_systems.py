@@ -12,6 +12,8 @@ from systems.libretro import libretro
 from systems.analoguepocket import AnaloguePocket
 from systems.emudeck import EmuDeck
 from systems.igdb import IGDB
+from systems.replayfpgaarcade import ReplayFPGAArcade
+
 
 APP_NAME="Check Systems"
 APP_VER="0.01"
@@ -25,7 +27,8 @@ VALID_SYSTEMS={
     "libretro" : libretro(),
     "analoguepocket" : AnaloguePocket(),
     "emudeck" : EmuDeck(),
-    "igdb" : IGDB()
+    "igdb" : IGDB(),
+    "replayfpgaarcade" : ReplayFPGAArcade()
     }
 
 def main(args):

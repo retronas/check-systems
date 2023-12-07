@@ -54,13 +54,18 @@ class URLHandler():
 
     def github_tree(self, account, repo, branch="main", headers=None):
         self.logger.log_info("Processing github tree download mode")
-        url = "https://api.github.com/repos/%s/%s/git/trees/%s?recursive=1" % ( account, repo, branch )
+        url = f"https://api.github.com/repos/{account}/{repo}/git/trees/{branch}?recursive=1"
         json_data = self.get(url, headers)
         return json.loads(json_data[0])
 
+    def github_raw(self, account, repo, branch="main", path='/', headers=None):
+        self.logger.log_info("Processing github raw download mode")
+        url = f"https://raw.githubusercontent.com/{account}/{repo}/{branch}/{path}"
+        return self.get(url, headers)
+
     def gitlab_tree(self, projectid, path, headers=None):
         self.logger.log_info("Processing gitlab tree download mode")
-        url = 'https://gitlab.com/api/v4/projects/%s/repository/tree?path=%s&per_page=100&pagination=keyset&page_token=keyset' % (projectid, path)
+        url = f'https://gitlab.com/api/v4/projects/{projectid}/repository/tree?path={path}&per_page=100&pagination=keyset&page_token=keyset'
         dataset = []
 
         data = self.get(url, headers)
