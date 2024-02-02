@@ -14,8 +14,26 @@ class ReplayFPGAArcade():
         self.systems_repos = [
             ['FPGAArcade', 'replay_release', 'master']
         ]
-        self.ignored = [] #old need to change comparison code to use exclude/include
-        self.exclude = ['README.md','firmware']
+        self.exclude = [
+                'README.md',
+                'firmware',
+                'amiga/amiga_68060',
+                'amiga/amiga_68060/removable',
+                'amiga/amiga_68060/fixed',
+                'amiga/amiga_aga',
+                'amiga/amiga_aga/removable',
+                'amiga/amiga_aga/fixed',
+                'amiga/amiga_fx68k',
+                'amiga/amiga_fx68k/removable',
+                'amiga/amiga_fx68k/fixed',
+                'c64/removable',
+                'cbm64/carts',
+                'cbm64/removable',
+                'ccastles/roms',
+                'mrdo/roms',
+                'vic20/removable',
+                ]
+        self.ignored = self.exclude #old need to change comparison code to use exclude/include
         self.include = ['.*\.ini']
         self.system_dirs = []
         self.systems = []
@@ -44,7 +62,11 @@ class ReplayFPGAArcade():
                     for option in config['UPLOAD']:
                         if re.match('^(rom|ROM).*', option):
                             dirname = os.path.dirname(configfile)
-                            abspath = os.path.join(dirname,os.path.dirname(config['UPLOAD'][option]).split(',')[0])
+                            procpath = os.path.dirname(config['UPLOAD'][option]).split(',')[0]
+                            if procpath:
+                                abspath = os.path.join(dirname,os.path.join(procpath))
+                            else:
+                                abspath = dirname
                             if abspath not in self.systems:
                                 self.systems.append(abspath)
 
