@@ -43,8 +43,7 @@ class URLHandler():
             return [r.content, next_page]
         else:
              self.logger.log_error("Failed to get %s, code was %s" % (url, r.status_code))
-             exit(1)
-
+             return [None,None]
         return None
 
 
@@ -78,7 +77,8 @@ class URLHandler():
 
         data_names = []
         for data_items in dataset:
-            json_data = data_items.decode('utf-8')
-            data_names.append(json.loads(json_data))
+            if data_items is not None:
+                json_data = data_items.decode('utf-8')
+                data_names.append(json.loads(json_data))
 
         return data_names
