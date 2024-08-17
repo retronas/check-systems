@@ -72,4 +72,9 @@ if __name__ == "__main__":
     parser.add_argument('--retronas-branch', help='check against a different branch', type=str, required=False)
     parser.add_argument('--retronas-local', help='check against a local retronas file', type=str, required=False)
     args = parser.parse_args()
+    if args.retronas_branch == 'local' and args.retronas_local is None:
+        parser.error('--retronas-local RETRONAS_LOCAL is required when --retronas-branch is set to local')
+    if args.retronas_local is not None and args.retronas_branch is None :
+        parser.error('--retronas-local has no affect without --retronas-branch local ')
+
     main(args)
