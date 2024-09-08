@@ -28,10 +28,11 @@ class URLHandler():
         if r.status_code == 200:
             if "Link" in r.headers:
                 self.logger.log_info("Response headers container link reference, probable pagination, processing")
-                
                 pagination = r.headers['Link'].split('<')
-                last_page = pagination[2].split(';')[0]
                 next_page = pagination[1].split(';')[0]
+                last_page = next_page
+                if len(pagination) > 2:
+                    last_page = pagination[2].split(';')[0]
                 self.logger.log_info("Pages LAST: %s NEXT: %s" % (last_page, next_page))
 
                 if next_page == last_page:
@@ -45,7 +46,6 @@ class URLHandler():
              self.logger.log_error("Failed to get %s, code was %s" % (url, r.status_code))
              return [None,None]
         return None
-
 
     def direct(self, url, headers=None):
         self.logger.log_info("Processing direct download mode")
@@ -64,7 +64,8 @@ class URLHandler():
 
     def gitlab_tree(self, projectid, path, headers=None):
         self.logger.log_info("Processing gitlab tree download mode")
-        url = f'https://gitlab.com/api/v4/projects/{projectid}/repository/tree?path={path}&per_page=100&pagination=keyset&page_token=keyset'
+        #url = f'https://gitlab.com/api/v4/projects/{projectid}/repository/tree?path={path}&per_page=100&pagination=keyset&page_token=keyset'
+        url = f'https://gitlab.com/api/v4/projects/{projectid}/repository/tree?path={path}&per_page=100&pagination=keyset'
         dataset = []
 
         data = self.get(url, headers)
