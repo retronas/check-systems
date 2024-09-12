@@ -7,6 +7,7 @@ from lib.logger import Logger
 class EmuDeck():
     def __init__(self):
         self.name = 'emudeck'
+        self.short = 'EMD'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_repos = [

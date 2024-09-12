@@ -7,6 +7,7 @@ from lib.logger import Logger
 class Batocera():
     def __init__(self):
         self.name = 'batocera'
+        self.short = 'BAT'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/batocera-linux/batocera.linux/master/package/batocera/emulationstation/batocera-es-system/es_systems.yml'

@@ -9,6 +9,7 @@ from lib.logger import Logger
 class ReplayFPGAArcade():
     def __init__(self):
         self.name = 'replayfpgaarcade'
+        self.short = 'RFA'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_repos = [

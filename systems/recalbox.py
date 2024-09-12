@@ -6,6 +6,7 @@ from lib.logger import Logger
 class Recalbox():
     def __init__(self):
         self.name = 'recalbox'
+        self.short = 'RCB'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_projectid = '2396494'

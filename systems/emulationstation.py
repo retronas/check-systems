@@ -6,7 +6,8 @@ from lib.url import URLHandler
 
 class EmulationStation():
     def __init__(self):
-        self.name = ''
+        self.name = 'emulationstation'
+        self.short = 'EMS'
         self.system_key = None
         self.logger = None
         self.systems_url = ''

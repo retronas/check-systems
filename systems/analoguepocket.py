@@ -8,6 +8,7 @@ from lib.logger import Logger
 class AnaloguePocket():
     def __init__(self):
         self.name = 'analoguepocket'
+        self.short = 'AGP'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/openfpga-cores-inventory/analogue-pocket/main/_data/cores.yml'

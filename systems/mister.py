@@ -7,6 +7,7 @@ from lib.logger import Logger
 class MiSTer():
     def __init__(self):
         self.name = 'mister'
+        self.short = 'MTR'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_repos = [

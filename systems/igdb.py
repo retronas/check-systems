@@ -8,6 +8,7 @@ from lib.logger import Logger
 class IGDB():
     def __init__(self):
         self.name = 'igdb'
+        self.short = 'IGD'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_url = 'https://www.igdb.com/platforms'

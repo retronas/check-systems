@@ -8,6 +8,7 @@ from lib.logger import Logger
 class RetroNAS():
     def __init__(self, branch='main', localfile=None):
         self.name = 'retronas'
+        self.short = 'RTN'
         self.system_key = 'src'
         self.logger = Logger(self.name)
         self.branch = branch

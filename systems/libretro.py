@@ -7,6 +7,7 @@ from lib.logger import Logger
 class libretro():
     def __init__(self):
         self.name = 'retroarch'
+        self.short = 'RTA'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_repos = [

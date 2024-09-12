@@ -16,7 +16,7 @@ class Tools():
 
         for entry in left:
             if entry not in right and entry not in ignore:
-                pieces.append(" %s[%s] %s" % (" "*17, right_name.upper()[0], entry))
+                pieces.append(" %s[%s] %s" % (" "*17, right_name.upper(), entry))
                 found = True
         self.logger.log_info('\n'.join(pieces))
 

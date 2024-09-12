@@ -57,8 +57,8 @@ def main(args):
             if not args.validate_only:
                 retronas.read(project.system_key)
                 project.read()
-                tools.compare(project.systems, retronas.systems, project.name, retronas.name, project.ignored)
-                tools.inverse_compare(project.systems, retronas.systems, project.name, retronas.name, project.ignored)
+                tools.compare(project.systems, retronas.systems, project.short, retronas.short, project.ignored)
+                tools.inverse_compare(project.systems, retronas.systems, project.short, retronas.short, project.ignored)
             else:
                 retronas.validate(project.system_key)
 

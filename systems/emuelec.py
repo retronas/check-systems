@@ -9,6 +9,7 @@ from systems.emulationstation import EmulationStation
 class EmuELEC(EmulationStation):
     def __init__(self):
         self.name = 'emuelec'
+        self.short = 'EME'
         self.system_key = self.name
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/EmuELEC/EmuELEC/master/packages/sx05re/emuelec-emulationstation/config/es_systems.cfg'
