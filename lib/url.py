@@ -30,7 +30,7 @@ class URLHandler():
                 self.logger.log_info("Response headers container link reference, probable pagination, processing")
                 pagination = r.headers['Link'].split('<')
                 next_page = pagination[1].split(';')[0]
-                last_page = next_page
+                last_page = None
                 if len(pagination) > 2:
                     last_page = pagination[2].split(';')[0]
                 self.logger.log_info("Pages LAST: %s NEXT: %s" % (last_page, next_page))
