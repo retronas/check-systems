@@ -53,15 +53,13 @@ def main(args):
             retronas = RetroNAS()
         
         for project in projects:
-
             if not args.validate_only:
                 retronas.read(project.system_key)
                 project.read()
-                tools.compare(project.systems, retronas.systems, project.short, retronas.short, project.ignored)
-                tools.inverse_compare(project.systems, retronas.systems, project.short, retronas.short, project.ignored)
+                tools.compare(project, retronas)
+                tools.compare(retronas, project, inverse=True)
             else:
                 retronas.validate(project.system_key)
-
     else:
         logger.log_error("Could not find module for %s" % args.system)
 
