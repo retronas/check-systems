@@ -20,7 +20,7 @@ class RetroDECK(EmulationStation):
             'consolearcade','pcarcade',
             # symlinks
             'ags','amiga600',
-            'cps','genesis','mame-advmame','type-x','mame-mame4all','pc',
+            'cps','genesis','mame-advmame','type-x','mame-mame4all',
             'megacdjp','megadrivejp','neogeocdjp','saturnjp','sega32xjp','sega32xna','segacd',
             'sneshd','snesna','tg-cd'
             ]
