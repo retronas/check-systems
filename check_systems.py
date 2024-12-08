@@ -3,32 +3,34 @@
 import argparse
 from lib.logger import Logger
 from lib.tools import Tools
+from systems.analoguepocket import AnaloguePocket
 from systems.batocera import Batocera
-from systems.retronas import RetroNAS
+from systems.emudeck import EmuDeck
+from systems.emuelec import EmuELEC
+from systems.igdb import IGDB
+from systems.libretro import libretro
 from systems.mister import MiSTer
 from systems.recalbox import Recalbox
-from systems.emuelec import EmuELEC
-from systems.libretro import libretro
-from systems.analoguepocket import AnaloguePocket
-from systems.emudeck import EmuDeck
-from systems.igdb import IGDB
 from systems.replayfpgaarcade import ReplayFPGAArcade
+from systems.retrodeck import RetroDECK
+from systems.retronas import RetroNAS
 
 
 APP_NAME="Check Systems"
 APP_VER="0.01"
 APP_AUTH="sairuk"
 VALID_SYSTEMS={
-    "mister" : MiSTer(), 
-    "batocera" : Batocera(), 
-    "recalbox" : Recalbox(),
-    "emuelec" : EmuELEC(),
-    "retroarch" : libretro(),
-    "libretro" : libretro(),
     "analoguepocket" : AnaloguePocket(),
+    "batocera" : Batocera(), 
     "emudeck" : EmuDeck(),
+    "emuelec" : EmuELEC(),
     "igdb" : IGDB(),
-    "replayfpgaarcade" : ReplayFPGAArcade()
+    "libretro" : libretro(),
+    "mister" : MiSTer(), 
+    "recalbox" : Recalbox(),
+    "replayfpgaarcade" : ReplayFPGAArcade(),
+    "retroarch" : libretro(),
+    "retrodeck" : RetroDECK(),
     }
 
 def main(args):
