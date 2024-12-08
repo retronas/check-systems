@@ -14,7 +14,7 @@ class RetroDECK(EmulationStation):
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/RetroDECK/ES-DE/refs/heads/main/resources/systems/unix/es_systems.xml'
         self.systems = []
-        self.ignored = []
+        self.ignored = ['emulators','epic','desktop','consolearcade','cps','kodi','mame-advmame','lutris','type-x','steam','pcarcade']
         self.logger.log_info("Initiated %s module" % self.name)
 
     def read(self):
@@ -22,3 +22,5 @@ class RetroDECK(EmulationStation):
         self.content = self.uh.direct(self.systems_url)
         self.data = self.read_config(self.content[0])
         self.systems = self.get_paths(self.data)
+
+        return self.systems

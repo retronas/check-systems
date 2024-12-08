@@ -22,3 +22,5 @@ class EmuELEC(EmulationStation):
         self.content = self.uh.direct(self.systems_url)
         self.data = self.read_config(self.content[0])
         self.systems = self.get_paths(self.data)
+
+        return self.systems

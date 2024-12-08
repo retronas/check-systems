@@ -25,8 +25,8 @@ class Tools():
         ignore = left.ignored
         if inverse:
             ignore = right.ignored
-        if len(left.systems) and len(right.systems):
+        if len(left.systems):
             self.logger.log_info('Running left (%s) > right (%s) compare' % (left.name, right.name))
             self.diff(left, right, ignore)
         else:
-            self.logger.log_error("Data sets were incomplete, comparison is not possible")
+            self.logger.log_error("Data sets were incomplete (entries: %s), comparison is not possible" % len(left.systems))

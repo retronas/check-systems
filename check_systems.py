@@ -36,7 +36,7 @@ VALID_SYSTEMS={
 def main(args):
     logger = Logger('main')
     logger.log_info("%s %s" % (APP_NAME, APP_VER))
-
+    tools = Tools()
 
     # override projects if a system is passed
     if args.system is not None:
@@ -44,30 +44,41 @@ def main(args):
     else:
         projects = VALID_SYSTEMS.values()
 
-    if projects is not None:
-        tools = Tools()
+    diff_retronas = False
+    # diff against another project instead of retronas
+    if args.system_diff is not None:
+        diff_system = VALID_SYSTEMS[args.system_diff]
+    # retronas
+    else:
         if args.retronas_branch is not None:
             if args.retronas_local is not None:
-                retronas = RetroNAS(args.retronas_branch,args.retronas_local)
+                diff_system = RetroNAS(args.retronas_branch,args.retronas_local)
             else:
-                retronas = RetroNAS(args.retronas_branch)
+                diff_system = RetroNAS(args.retronas_branch)
         else:
-            retronas = RetroNAS()
-        
+            diff_system = RetroNAS()
+        diff_retronas = True
+    
+    if projects is not None:
         for project in projects:
             if not args.validate_only:
-                retronas.read(project.system_key)
                 project.read()
-                tools.compare(project, retronas)
-                tools.compare(retronas, project, inverse=True)
+                if diff_retronas:
+                    diff_system.read(project.system_key)
+                else:
+                    diff_system.read()
+                print(project)
+                tools.compare(project, diff_system)
+                tools.compare(diff_system, project, inverse=True)
             else:
-                retronas.validate(project.system_key)
+                diff_system.validate(project.system_key)
     else:
         logger.log_error("Could not find module for %s" % args.system)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Compare supported project system data against retronas')
     parser.add_argument('--system', help='get the system data', type=str, required=False, choices=VALID_SYSTEMS.keys())
+    parser.add_argument('--system-diff', help='get the system data', type=str, required=False, choices=VALID_SYSTEMS.keys())
     parser.add_argument('--validate-only', help='validate the retronas data', default=False, const=True, nargs='?', required=False)
     parser.add_argument('--retronas-branch', help='check against a different branch', type=str, required=False)
     parser.add_argument('--retronas-local', help='check against a local retronas file', type=str, required=False)
