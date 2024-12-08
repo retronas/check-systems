@@ -14,7 +14,16 @@ class RetroDECK(EmulationStation):
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/RetroDECK/ES-DE/refs/heads/main/resources/systems/unix/es_systems.xml'
         self.systems = []
-        self.ignored = ['emulators','epic','desktop','consolearcade','cps','kodi','mame-advmame','lutris','type-x','steam','pcarcade']
+        self.ignored = [
+            # garbage systems
+            'emulators','cloud','desktop','epic','lutris','steam','kodi',
+            'consolearcade','pcarcade',
+            # symlinks
+            'ags','amiga600',
+            'cps','genesis','mame-advmame','type-x','mame-mame4all','pc',
+            'megacdjp','megadrivejp','neogeocdjp','saturnjp','sega32xjp','sega32xna','segacd',
+            'sneshd','snesna','tg-cd'
+            ]
         self.logger.log_info("Initiated %s module" % self.name)
 
     def read(self):
