@@ -26,7 +26,10 @@ class EmulationStation():
 
         if data is not None:
             for path in data.xpath("//path"):
-                dirname = os.path.split(path.text)[1]
+                if '\\' in path.text:
+                    dirname = path.text.split('\\')[1]      
+                else:             
+                    dirname = path.text.split('/')[1]
                 self.systems.append(dirname)
 
         return self.systems
