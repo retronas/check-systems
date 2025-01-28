@@ -15,7 +15,7 @@ class MiSTer():
             ['MiSTer-DB9','Distribution_MiSTer'],
             ['theypsilon','Distribution_Unofficial_MiSTer']
         ]
-        self.ignored = ['MEMTEST','GAMEBOY2P','GBA2P']
+        self.ignored = ['MEMTEST','GAMEBOY2P','GBA2P','VT52']
         self.system_dirs = ['games']
         self.systems = []
 

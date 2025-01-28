@@ -16,7 +16,7 @@ class EmuDeck():
         self.ignored = [
             # garbage systems
             'systeminfo.txt','systems.txt','cloud','desktop','epic','lutris','moonlight',
-            'primehacks','remoteplay','steam','kodi',
+            'primehacks','remoteplay','steam','kodi','emulators','generic-applications','android/roms'
             # symlinks
             'ags','amiga600','atarijaguarcd','cps','gc','genesis','mame-advmame',
             'mame-mame4all','mastersystem','megacdjp','megadrivejp','n3ds','neogeocdjp',
