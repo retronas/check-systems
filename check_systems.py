@@ -14,13 +14,15 @@ from systems.recalbox import Recalbox
 from systems.replayfpgaarcade import ReplayFPGAArcade
 from systems.retrodeck import RetroDECK
 from systems.retronas import RetroNAS
+from systems.pretty import Pretty
+from systems.romm import RoMM
 
 
 APP_NAME="Check Systems"
 APP_VER="0.01"
 APP_AUTH="sairuk"
 VALID_SYSTEMS={
-    "analoguepocket" : AnaloguePocket(),
+    #"analoguepocket" : AnaloguePocket(),
     "batocera" : Batocera(), 
     "emudeck" : EmuDeck(),
     "emuelec" : EmuELEC(),
@@ -31,6 +33,8 @@ VALID_SYSTEMS={
     "replayfpgaarcade" : ReplayFPGAArcade(),
     "retroarch" : libretro(),
     "retrodeck" : RetroDECK(),
+    "romm" : RoMM(),
+    #"pretty" : Pretty(),
     }
 
 def main(args):
@@ -67,7 +71,6 @@ def main(args):
                     diff_system.read(project.system_key)
                 else:
                     diff_system.read()
-                print(project)
                 tools.compare(project, diff_system)
                 tools.compare(diff_system, project, inverse=True)
             else:

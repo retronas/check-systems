@@ -1,2 +1,4 @@
+requests
+bs4
 lxml
-yaml
+pyyaml

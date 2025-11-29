@@ -27,9 +27,11 @@ class AnaloguePocket():
         self.systems = []
         self.ignored = [
                         'alphamission',
+                        'analogizer',
                         'astdelux',
                         'asteroids',
                         'athena',
+                        'bagman',
                         'bakraid',
                         'bankpanic',
                         'batrider',
@@ -50,6 +52,7 @@ class AnaloguePocket():
                         'garegga',
                         'gauntlet',
                         'gberet',
+                        'gyruss',
                         'hiimpact',
                         'irem_m92',
                         'jailbreak',
@@ -123,6 +126,7 @@ class AnaloguePocket():
                         'kingdmgp',
                         'lunarlander',
                         'mario',
+                        'memtest',
                         'mortalkombat',
                         'narc',
                         'performan',

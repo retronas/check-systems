@@ -17,7 +17,7 @@ class RetroDECK(EmulationStation):
         self.ignored = [
             # garbage systems
             'emulators','cloud','desktop','epic','lutris','steam','kodi',
-            'consolearcade','pcarcade','switch'
+            'consolearcade','pcarcade','switch',
             # symlinks
             'ags','amiga600',
             'cps','genesis','mame-advmame','type-x','mame-mame4all',

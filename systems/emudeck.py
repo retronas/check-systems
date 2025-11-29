@@ -16,11 +16,15 @@ class EmuDeck():
         self.ignored = [
             # garbage systems
             'systeminfo.txt','systems.txt','cloud','desktop','epic','lutris','moonlight',
-            'primehacks','remoteplay','steam','kodi','emulators','generic-applications','android/roms'
+            'primehacks','remoteplay','steam','kodi','emulators','generic-applications','android/roms','switch',
             # symlinks
             'ags','amiga600','atarijaguarcd','cps','gc','genesis','mame-advmame',
             'mame-mame4all','mastersystem','megacdjp','megadrivejp','n3ds','neogeocdjp',
             'psx','saturnjp','sega32xjp','sega32xna','segacd','sneshd','snesna',
+            # alt
+            'roms_alt_emus/atarijaguar','roms_alt_emus/atarijaguarcd','roms_alt_emus/dreamcast',
+            'roms_alt_emus/gba','roms_alt_emus/n3ds','roms_alt_emus/n64','roms_alt_emus/nds',
+            'roms_alt_emus/switch',
             ]
         self.system_dirs = ['roms']
         self.systems = []
@@ -40,6 +44,5 @@ class EmuDeck():
                         if dirs in item['path'] and item['path'].count('/') == 1:
                             filename = item['path'].replace("%s/" % dirs,'')
                             self.systems.append(filename)
-                            
+
         return self.systems
-    
