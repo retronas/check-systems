@@ -40,7 +40,7 @@ class IGDB():
             self.data = soup.find_all('a', href=True)
 
             for entry in self.data:
-                match = re.match('^\/platforms\/(.+)',entry.text)
+                match = re.match('^.+\/platforms\/(.+)',entry.attrs["href"])
                 if match is not None:
                     self.systems.append(match.groups()[0])
         return self.systems

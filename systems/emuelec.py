@@ -15,7 +15,7 @@ class EmuELEC(EmulationStation):
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/EmuELEC/EmuELEC/master/packages/sx05re/emuelec-emulationstation/config/es_systems.json'
         self.systems = []
-        self.ignored = ['setup','nesh','gbah','gbch','gbh','snesh','gamegearh','genh']
+        self.ignored = ['setup','nesh','gbah','gbch','gbh','snesh','gamegearh','genh','ggh']
         self.logger.log_info("Initiated %s module" % self.name)
 
     def read_json_config(self, data=None):
