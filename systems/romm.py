@@ -4,6 +4,9 @@ import re
 from lib.url import URLHandler
 from lib.logger import Logger
 
+# ref
+# https://docs.romm.app/4.5.0/Platforms-and-Players/Supported-Platforms/
+
 class RoMM():
     def __init__(self):
         self.name = 'romm'
@@ -12,7 +15,24 @@ class RoMM():
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/rommapp/romm/master/backend/handler/metadata/base_handler.py'
         self.systems = []
-        self.ignored = ['switch']
+        self.ignored = ['switch','ps5','switch-2',
+                        '1292-advanced-programmable-video-system',
+                        'atari8bit','hd-dvd-player',
+                        'dedicated-console','dedicated-handheld',
+                        'microcomputer','analogueelectronics',
+                        'mos-technology-6502','motorola-6800','motorola-68k',
+                        'xboxcloudgaming','amazon-alexa','antstream',
+                        'luna','g-cluster','terminal','triton','gloud',
+                        'tizen','tvos','beos','brew','bada','bit-90',
+                        'black-point','bubble','amiga-cd','pippin',
+                        'casio-programmable-calculator','clickstart',
+                        'hp-programmable-calculator',
+                        'beena','daydream','freebox','gimini','gnex',
+                        'windows-mixed-reality','steam-vr','pico','oculus-vr',
+                        'mainframe','hugo','hrx','ideal-computer',
+                        'intel-8008','intel-8080','intel-8086',
+                        'ipod-classic','ipad','kindle','mobile-custom'
+                       ]
         self.logger.log_info("Initiated %s module" % self.name)
 
     def read(self):
