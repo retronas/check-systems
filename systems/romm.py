@@ -15,23 +15,65 @@ class RoMM():
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/rommapp/romm/master/backend/handler/metadata/base_handler.py'
         self.systems = []
-        self.ignored = ['switch','ps5','switch-2',
+        self.ignored = [
                         '1292-advanced-programmable-video-system',
-                        'atari8bit','hd-dvd-player',
+
+                        # cloud
+                        'xboxcloudgaming','antstream','luna','g-cluster','gloud',
+
+                        # subscription
+                        'playstation-now',
+
+                        # os
+                        'tvos','beos','visionos','watchos','webos',
+
+                        # amazon
+                        'amazon-alexa','kindle',
+
+                        # roku
+                        'roku',
+
+                        # vr
+                        'windows-mixed-reality','steam-vr','pico','oculus-vr',
+
+                        # ios
+                        'ipod-classic','ipad',
+
+                        # mobile
+                        'mobile-custom',
+
+                        # calc
+                        'casio-programmable-calculator',
+                        'hp-programmable-calculator',
+                        'ti-programmable-calculator',
+
+                        # cpu/chip
+                        'mos-technology-6502','motorola-6800','motorola-68k',
+                        'intel-8008','intel-8080','intel-8086',
+                        'z80','zilog-z8000',
+
+                        # symlinks
+                        'beena',            # sega/advanced-pico-beena
+                        'panasonic-m2',     # panasonic/3d0
+                        'amiga-cd',         # ??
+                        'pippin',           # apple/apple-pippin
+                        'vc-4000',          # interton/vc4000
+                        'vis',              # tandy/tandy-vis
+                        'zod',              # tapwave/zodiac
+
+                        # general
+                        'atari8bit',
                         'dedicated-console','dedicated-handheld',
                         'microcomputer','analogueelectronics',
-                        'mos-technology-6502','motorola-6800','motorola-68k',
-                        'xboxcloudgaming','amazon-alexa','antstream',
-                        'luna','g-cluster','terminal','triton','gloud',
-                        'tizen','tvos','beos','brew','bada','bit-90',
-                        'black-point','bubble','amiga-cd','pippin',
-                        'casio-programmable-calculator','clickstart',
-                        'hp-programmable-calculator',
-                        'beena','daydream','freebox','gimini','gnex',
-                        'windows-mixed-reality','steam-vr','pico','oculus-vr',
-                        'mainframe','hugo','hrx','ideal-computer',
-                        'intel-8008','intel-8080','intel-8086',
-                        'ipod-classic','ipad','kindle','mobile-custom'
+                        'photocd','mainframe','terminal','tim',
+
+                        # not enough info
+                        'black-point',
+                        'daydream',
+                        'palmtex',
+                        'pandora',
+                        'wipi',
+                        'freebox',
                        ]
         self.logger.log_info("Initiated %s module" % self.name)
 

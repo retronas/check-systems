@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 from lib.logger import Logger
+from lib.config import Config
 
 class Tools():
     def __init__(self):
         self.logger = Logger('tools')
+        self.config = Config()
         return
 
     def diff(self, left, right, ignore=[]):
@@ -12,8 +14,10 @@ class Tools():
         pieces.append("Checking for %s systems not in %s" % (left.name, right.name))
         found = False
 
+        ignored = left.ignored + self.config.ignored()
+
         for entry in left.systems:
-            if entry not in right.systems and entry not in left.ignored:
+            if entry not in right.systems and entry not in ignored:
                 pieces.append(" %s[%s] %s" % (" "*17, right.short.upper(), entry))
                 found = True
         self.logger.log_info('\n'.join(pieces))

@@ -17,8 +17,6 @@ class IGDB():
         self.systems = []
         self.ignored = [
             '1292-advanced-programmable-video-system',
-            'switch',
-            'ps5'
         ]
         self.logger.log_info('Initiated %s module' % self.name)
         self.arcadewhitelist = []

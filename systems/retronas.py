@@ -16,9 +16,9 @@ class RetroNAS():
         self.systems_url = 'https://raw.githubusercontent.com/danmons/retronas/%s/ansible/retronas_systems.yml' % self.branch
         self.systems = []
         self.ignored = [
-            'system_map', 
+            "system_template",
             'system_links',
-            "system_template", 
+            #"system_unsupported",
             ]
         self.logger.log_info("Initiated %s module" % self.name)
 

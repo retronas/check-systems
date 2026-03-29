@@ -26,6 +26,7 @@ class AnaloguePocket():
             ]
         self.systems = []
         self.ignored = [
+                        # unsupported on retronas, point to arcade dir
                         'alphamission',
                         'analogizer',
                         'astdelux',

@@ -61,8 +61,8 @@ def main(args):
                 diff_system = RetroNAS(args.retronas_branch)
         else:
             diff_system = RetroNAS()
-        diff_retronas = True
-    
+        diff_retronas = True 
+
     if projects is not None:
         for project in projects:
             if not args.validate_only:
