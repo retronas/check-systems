@@ -16,7 +16,9 @@ class IGDB():
         self.local_mode = True
         self.systems = []
         self.ignored = [
-            '1292-advanced-programmable-video-system',
+            '1292-advanced-programmable-video-system','visionos',
+            # hrrrm
+            'panasonic-m2',
         ]
         self.logger.log_info('Initiated %s module' % self.name)
         self.arcadewhitelist = []

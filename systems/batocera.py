@@ -12,7 +12,12 @@ class Batocera():
         self.logger = Logger(self.name)
         self.systems_url = 'https://raw.githubusercontent.com/batocera-linux/batocera.linux/master/package/batocera/emulationstation/batocera-es-system/es_systems.yml'
         self.systems = []
-        self.ignored = []
+        self.ignored = [
+            # symlinks
+            'mz2500',
+            'mz700',
+            'mz800',
+        ]
         self.logger.log_info("Initiated %s module" % self.name)
 
     def read(self):
