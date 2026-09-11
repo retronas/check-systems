@@ -33,6 +33,24 @@ class ReplayFPGAArcade():
                 'ccastles/roms',
                 'mrdo/roms',
                 'vic20/removable',
+                'stable/R1/amiga_aga',
+                'stable/R1/amiga_aga/removable',
+                'stable/R1/amiga_aga/fixed',
+                'stable/R1/amiga_db060/legacy',
+                'stable/R1/amiga_db060/legacy/removable',
+                'stable/R1/amiga_db060/legacy/fixed',
+                'stable/R1/amiga_fx68k/legacy',
+                'stable/R1/amiga_fx68k/legacy/removable',
+                'stable/R1/amiga_fx68k/legacy/fixed',
+                'stable/R1/c64',
+                'stable/R1/c64/removable',
+                'stable/R1/cbm64/carts',
+                'stable/R1/cbm64/removable',
+                'stable/R1/ccastles/roms',
+                'stable/R1/mrdo/roms',
+                'stable/R1/vic20',
+                'stable/R1/vic20/removable',
+
                 ]
         self.ignored = self.exclude #old need to change comparison code to use exclude/include
         self.include = ['.*\.ini']

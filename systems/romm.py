@@ -13,7 +13,8 @@ class RoMM():
         self.short = 'RMM'
         self.system_key = self.name
         self.logger = Logger(self.name)
-        self.systems_url = 'https://raw.githubusercontent.com/rommapp/romm/master/backend/handler/metadata/base_handler.py'
+        #self.systems_url = 'https://raw.githubusercontent.com/rommapp/romm/master/backend/handler/metadata/base_handler.py'
+        self.systems_url = 'https://raw.githubusercontent.com/rommapp/romm/master/backend/utils/platform_slugs.py'
         self.systems = []
         self.ignored = [
                         '1292-advanced-programmable-video-system',
