@@ -21,7 +21,8 @@ class MiSTer():
             'Game And Watch','GameGear2P','AtariSTUSERIO2',
             'GBA_accuracy','Game And Watch','GameGear2P',
             'MinimigUSERIO2','NeoGeo_24MHz_cpu_only','PSX_DualSDRAM',
-            'Saturn_DualSDRAM','X68000USERIO2','ao486USERIO2','MACLC'
+            'Saturn_DualSDRAM','X68000USERIO2','ao486USERIO2',
+            '_Arcade/Rollergames (US).mra','MACIICX'
         ]
         self.system_dirs = ['games']
         self.systems = []

@@ -61,6 +61,7 @@ class RoMM():
                         'vc-4000',          # interton/vc4000
                         'vis',              # tandy/tandy-vis
                         'zod',              # tapwave/zodiac
+                        'mame-advmame',     # arcade/mame
 
                         # general
                         'atari8bit',

@@ -13,7 +13,7 @@ class libretro():
         self.systems_repos = [
             ['libretro', 'libretro-database', "master"],
         ]
-        self.ignored = []
+        self.ignored = ['NEC - PC-8001 - PC-8801']
         self.system_dirs = ['rdb']
         self.systems = []
 
